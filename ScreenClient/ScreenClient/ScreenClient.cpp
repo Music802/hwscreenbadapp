@@ -8,7 +8,7 @@ ScreenClient::ScreenClient(QWidget *parent)
 	: QWidget(parent),m_conn(nullptr),m_cmd_idx(0),
 	m_capture(nullptr),
 	m_threadEncode(nullptr),
-	m_udpConn(nullptr),
+	m_kcpConn(nullptr),
 	m_udpPort(3001)//for test
 {
 	ui.setupUi(this);
@@ -246,6 +246,8 @@ void ScreenClient::SetupedSlot(int x, int y, int w, int h, int dst_x,
 		return;
 	}
 	//create a thread to encode
+	m_kcpConn=new IKCPNetworker(m_conn->peerAddress().toString().toStdString(),
+		m_udpPort, m_ssrc);
 	m_threadEncode = new std::thread(&ScreenClient::threadEncode, this,dst_w,dst_h);
 	
 	//send location
@@ -312,10 +314,7 @@ void ScreenClient::threadEncode(int w,int h) {
 	int result = 0;
 	bool firstFrameGoted = false;
 	auto rtpPacker = new hwss::RTP_Packer(hwss::Payload_h264, m_ssrc);
-	m_udpConn = new QUdpSocket();
-	QHostAddress addr;
-	addr=(m_conn->peerAddress());
-	//m_udpConn->writeDatagram()
+
 	while (m_encoding)
 	{
 		for (auto i:outFrames)
@@ -372,8 +371,9 @@ void ScreenClient::threadEncode(int w,int h) {
 					{
 						for (auto itSend:pktSend)
 						{
-							m_udpConn->writeDatagram((const char *)itSend->data, itSend->size,
-								addr, m_udpPort);
+							/*m_udpConn->writeDatagram((const char *)itSend->data, itSend->size,
+								addr, m_udpPort);*/
+							m_kcpConn->WriteData((const char*)itSend->data, itSend->size);
 						}
 						//udp send 
 					}
@@ -390,15 +390,11 @@ void ScreenClient::threadEncode(int w,int h) {
 	m_encoding = false;
 	delete rtpPacker;
 
-	if (nullptr != m_udpConn)
-	{
-		if (m_udpConn->isOpen())
-		{
-			m_udpConn->close();
-		}
-		delete m_udpConn;
-		m_udpConn = nullptr;
-	}
+	//if (nullptr != m_kcpConn)
+	//{
+	//	delete m_kcpConn;
+	//	m_kcpConn = nullptr;
+	//}
 }
 
 void ScreenClient::ReleaseCaptureStopEncode()
@@ -420,13 +416,9 @@ void ScreenClient::ReleaseCaptureStopEncode()
 	}
 
 
-	if (nullptr != m_udpConn)
+	if (nullptr != m_kcpConn)
 	{
-		if (m_udpConn->isOpen())
-		{
-			m_udpConn->close();
-		}
-		delete m_udpConn;
-		m_udpConn = nullptr;
+		delete m_kcpConn;
+		m_kcpConn = nullptr;
 	}
 }

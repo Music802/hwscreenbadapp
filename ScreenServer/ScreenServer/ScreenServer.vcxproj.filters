@@ -56,6 +56,12 @@
     <Filter Include="VideoEncoderDecoder\Encoder">
       <UniqueIdentifier>{83dbdf5c-a876-48f2-a621-d2cd86cf633b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="KCP">
+      <UniqueIdentifier>{0a28b2fd-9f06-4a40-8ed5-112dd661457b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KCP\IKCP">
+      <UniqueIdentifier>{baf5a7e0-8bb6-41b0-9cdc-7dc37cb73f0b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -157,6 +163,21 @@
     <ClCompile Include="..\..\VideoEncoderDecoder\Encoder\H264Encoder.cpp">
       <Filter>VideoEncoderDecoder\Encoder</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\KCP\QKCPNetworker.cpp">
+      <Filter>KCP</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_QKCPNetworker.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_QKCPNetworker.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\KCP\IKCP\ikcp.c">
+      <Filter>KCP\IKCP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\KCP\KCPNetInfo.cpp">
+      <Filter>KCP</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="ScreenServer.h">
@@ -182,6 +203,9 @@
     </CustomBuild>
     <CustomBuild Include="SDLWidget\SDLWidget.h">
       <Filter>SDLWidget</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\KCP\QKCPNetworker.h">
+      <Filter>KCP</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
@@ -232,6 +256,15 @@
     </ClInclude>
     <ClInclude Include="..\..\VideoEncoderDecoder\Encoder\H264Encoder.h">
       <Filter>VideoEncoderDecoder\Encoder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\KCP\timeUtils.h">
+      <Filter>KCP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\KCP\IKCP\ikcp.h">
+      <Filter>KCP\IKCP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\KCP\KCPNetInfo.h">
+      <Filter>KCP</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -8,6 +8,7 @@
 #include "WidgetSetup.h"
 #include "WidgetPlay.h"
 #include "PLAY_CMDS.h"
+#include "KCP/QKCPNetworker.h"
 
 #include "VideoEncoderDecoder/ffcapture.h"
 #include "RTP/RTP_Packer.h"
@@ -62,7 +63,7 @@ private:
 	QByteArray m_recvCache;
 	int	m_udpPort;
 	int m_ssrc;
-	QUdpSocket *m_udpConn;
+	IKCPNetworker *m_kcpConn;
 
 	/*
 	screen capture

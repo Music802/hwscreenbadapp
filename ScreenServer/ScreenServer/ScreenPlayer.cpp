@@ -4,16 +4,19 @@
 #include "PLAY_CMDS.h"
 
 ScreenPlayer::ScreenPlayer(QObject *parent, QString id, QTcpSocket *conn)
-	: QObject(parent), m_id(id), m_conn(conn), m_udpSvr(nullptr), m_renderer(nullptr)
+	: QObject(parent),
+	m_id(id),
+	m_conn(conn), 
+	m_kcpServer(nullptr),
+	m_renderer(nullptr)
 {
 	QObject::connect(m_conn, &QTcpSocket::readyRead, this, &ScreenPlayer::onNewData);
 	QObject::connect(m_conn, &QTcpSocket::disconnected, this, &ScreenPlayer::onDisconnected);
 
 	//create udp server and renderer
-	m_ssrc = qrand() % 0xffffff + 1;
-	m_udpSvr = new UDPServer(nullptr);
+	m_kcpServer = new IKCPNetworker();
 	m_renderer = new ScreenRenderer(nullptr);
-	QObject::connect(m_udpSvr, &UDPServer::NewDatagrams, m_renderer, &ScreenRenderer::OnNewDatagram);
+	QObject::connect(m_kcpServer, &IKCPNetworker::ProcessDatagramsSignal, m_renderer, &ScreenRenderer::OnNewDatagram);
 }
 
 ScreenPlayer::~ScreenPlayer()
@@ -58,10 +61,10 @@ void ScreenPlayer::ForceClose() {
 		m_conn->close();
 		m_conn = nullptr;
 	}
-	if (nullptr != m_udpSvr)
+	if (nullptr != m_kcpServer)
 	{
-		delete m_udpSvr;
-		m_udpSvr = nullptr;
+		delete m_kcpServer;
+		m_kcpServer = nullptr;
 	}
 
 	if (m_renderer != nullptr)
@@ -115,7 +118,7 @@ void ScreenPlayer::handleConnect(QByteArray data, int size)
 
 	QJsonObject json;
 	QJsonDocument doc;
-	json.insert("port", m_udpSvr->UDPPort());
+	json.insert("port", m_kcpServer->Port());
 	json.insert("ssrc", m_ssrc);
 	doc.setObject(json);
 	auto jsonArray = doc.toJson();

@@ -15,7 +15,7 @@ public:
 	void SetVideoInfo(int width, int height, QString sps64, QString pps64);
 	void SetLocation(int x, int y,int w,int h);
 	public slots:
-	void OnNewDatagram(QByteArray data);
+	void OnNewDatagram(const char *buf,int len);
 private:
 	void ReleaseRTPUnpacker();
 	void ReleaseDecoder();

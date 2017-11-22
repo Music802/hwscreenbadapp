@@ -132,17 +132,17 @@ void ScreenRenderer::ReleaseSDL()
 	}
 }
 
-void ScreenRenderer::OnNewDatagram(QByteArray data) {
+void ScreenRenderer::OnNewDatagram(const char *buf, int len) {
 	//generate h264 frame
-	if (m_rtpUnPacker==nullptr||data.size()<0)
+	if (m_rtpUnPacker==nullptr||buf==nullptr||len<=0)
 	{
 		return;
 	}
 
 	hwss::datapacket rtpPacket;
-	rtpPacket.size = data.size();
+	rtpPacket.size = len;
 	rtpPacket.data = new unsigned char[rtpPacket.size];
-	memcpy(rtpPacket.data, data.data(), rtpPacket.size);
+	memcpy(rtpPacket.data, buf, rtpPacket.size);
 	auto h264Frames = m_rtpUnPacker->UnPackge(rtpPacket);
 
 	for (auto i:h264Frames )

@@ -53,6 +53,12 @@
     <Filter Include="VideoEncoderDecoder\Decoder">
       <UniqueIdentifier>{7b1b70fe-c120-412e-a4af-b832602ed72c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="KCP">
+      <UniqueIdentifier>{df4d594a-1478-4642-895e-8fa641b7c734}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KCP\IKCP">
+      <UniqueIdentifier>{afff8103-b600-411f-a2fd-c866f0106217}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -133,6 +139,21 @@
     <ClCompile Include="..\..\VideoEncoderDecoder\ffmpeg_header.cpp">
       <Filter>VideoEncoderDecoder</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\KCP\IKCP\ikcp.c">
+      <Filter>KCP\IKCP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\KCP\KCPNetInfo.cpp">
+      <Filter>KCP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\KCP\QKCPNetworker.cpp">
+      <Filter>KCP</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_QKCPNetworker.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_QKCPNetworker.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="ScreenClient.h">
@@ -161,6 +182,9 @@
     </CustomBuild>
     <CustomBuild Include="WidgetPlay.ui">
       <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\KCP\QKCPNetworker.h">
+      <Filter>KCP</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
@@ -217,6 +241,15 @@
     </ClInclude>
     <ClInclude Include="..\..\VideoEncoderDecoder\ffmpeg_header.h">
       <Filter>VideoEncoderDecoder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\KCP\IKCP\ikcp.h">
+      <Filter>KCP\IKCP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\KCP\KCPNetInfo.h">
+      <Filter>KCP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\KCP\timeUtils.h">
+      <Filter>KCP</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

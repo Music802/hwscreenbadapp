@@ -6,6 +6,7 @@
 #include <qevent.h>
 #include "ScreenRenderer.h"
 #include "UDPServer.h"
+#include "KCP/QKCPNetworker.h"
 
 class ScreenPlayer : public QObject
 {
@@ -35,6 +36,6 @@ private:
 	QTcpSocket *m_conn;
 	QByteArray m_recvCache;
 	ScreenRenderer *m_renderer;
-	UDPServer *m_udpSvr;
+	IKCPNetworker *m_kcpServer;
 	int m_ssrc;
 };
