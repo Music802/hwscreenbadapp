@@ -2,7 +2,7 @@
 #include <qmessagebox.h>
 
 WidgetSetup::WidgetSetup(QWidget *parent)
-	: QWidget(parent),m_useTCP(false)
+	: QWidget(parent)
 {
 	ui.setupUi(this);
 

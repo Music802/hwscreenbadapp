@@ -19,5 +19,4 @@ private:
 	Ui::WidgetSetup ui;
 	void setInputNumber();
 	QRect m_dstRect;
-	bool m_useTCP;
 };

@@ -70,6 +70,5 @@ private:
 	ffcapture *m_capture;
 	std::thread *m_threadEncode;
 	volatile bool m_encoding;
-	bool m_useTCP;
 	//rtp
 };
