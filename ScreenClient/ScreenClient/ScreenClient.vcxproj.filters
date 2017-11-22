@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>moc;h;cpp</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Generated Files\Debug">
+      <UniqueIdentifier>{4f04c389-9b79-40f8-a3ec-08fb1cc9458c}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Generated Files\Release">
+      <UniqueIdentifier>{5d7fe4fc-cf2d-4e58-b0a1-2b0bdb1b7723}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="RTP">
+      <UniqueIdentifier>{1ae988a9-4ab2-460e-b6ef-0ecd2d8471a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CommonUtils">
+      <UniqueIdentifier>{48d2fc7e-1eef-4866-9cc9-4e4947e1529b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VideoEncoderDecoder">
+      <UniqueIdentifier>{fc6f623c-a11c-422f-937e-e6fc0c099bbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VideoEncoderDecoder\Encoder">
+      <UniqueIdentifier>{d082493c-8544-4571-8d0d-23a44b59d409}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VideoEncoderDecoder\Decoder">
+      <UniqueIdentifier>{7b1b70fe-c120-412e-a4af-b832602ed72c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenClient.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ScreenClient.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ScreenClient.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\qrc_ScreenClient.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_WidgetConnect.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_WidgetConnect.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="WidgetConnect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_WidgetSetup.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_WidgetSetup.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="WidgetSetup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_WidgetPlay.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_WidgetPlay.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="WidgetPlay.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CommonUtils\BitReader.cpp">
+      <Filter>CommonUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\RTP\rtp.cpp">
+      <Filter>RTP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\RTP\RTP_Packer.cpp">
+      <Filter>RTP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\RTP\RTP_UnPacker.cpp">
+      <Filter>RTP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\RTP\RTP_UnPackerH264.cpp">
+      <Filter>RTP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\VideoEncoderDecoder\Decoder\H264_FFMPEG_Decoder.cpp">
+      <Filter>VideoEncoderDecoder\Decoder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\VideoEncoderDecoder\Decoder\H264Decoder.cpp">
+      <Filter>VideoEncoderDecoder\Decoder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\VideoEncoderDecoder\Encoder\H264_FFMPEG_Encoder.cpp">
+      <Filter>VideoEncoderDecoder\Encoder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\VideoEncoderDecoder\Encoder\H264_X264_Encoder.cpp">
+      <Filter>VideoEncoderDecoder\Encoder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\VideoEncoderDecoder\Encoder\H264Encoder.cpp">
+      <Filter>VideoEncoderDecoder\Encoder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\VideoEncoderDecoder\ffcapture.cpp">
+      <Filter>VideoEncoderDecoder</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\VideoEncoderDecoder\ffmpeg_header.cpp">
+      <Filter>VideoEncoderDecoder</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="ScreenClient.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ScreenClient.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ScreenClient.qrc">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="WidgetConnect.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="WidgetConnect.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="WidgetSetup.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="WidgetSetup.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="WidgetPlay.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="WidgetPlay.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GeneratedFiles\ui_ScreenClient.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_WidgetConnect.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_WidgetSetup.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_WidgetPlay.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PLAY_CMDS.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CommonUtils\BitReader.h">
+      <Filter>CommonUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CommonUtils\datapacket.h">
+      <Filter>CommonUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\RTP\rtp.h">
+      <Filter>RTP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\RTP\RTP_Packer.h">
+      <Filter>RTP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\RTP\RTP_UnPacker.h">
+      <Filter>RTP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\RTP\RTP_UnPackerH264.h">
+      <Filter>RTP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\VideoEncoderDecoder\Decoder\H264_FFMPEG_Decoder.h">
+      <Filter>VideoEncoderDecoder\Decoder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\VideoEncoderDecoder\Decoder\H264Decoder.h">
+      <Filter>VideoEncoderDecoder\Decoder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\VideoEncoderDecoder\Encoder\H264_FFMPEG_Encoder.h">
+      <Filter>VideoEncoderDecoder\Encoder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\VideoEncoderDecoder\Encoder\H264_X264_Encoder.h">
+      <Filter>VideoEncoderDecoder\Encoder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\VideoEncoderDecoder\Encoder\H264Encoder.h">
+      <Filter>VideoEncoderDecoder\Encoder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\VideoEncoderDecoder\ffcapture.h">
+      <Filter>VideoEncoderDecoder</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\VideoEncoderDecoder\ffmpeg_header.h">
+      <Filter>VideoEncoderDecoder</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
