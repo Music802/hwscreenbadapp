@@ -15,7 +15,7 @@ namespace hwss {
 	enum RTP_PAYLOAD
 	{
 		Payload_h264 = 96,
-		Payload_MPA=14
+		Payload_MPA = 14
 	};
 	//const int Payload_h264 = 96;
 	//const int Payload_MPA = 14; //mp3 freq 90000

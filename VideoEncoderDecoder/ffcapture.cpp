@@ -255,7 +255,8 @@ void ffcapture::ReleaseCapturer()
 
 void ffcapture::CreateScaler()
 {
-	m_yuvFMT = AV_PIX_FMT_YUV420P;
+	//m_yuvFMT = AV_PIX_FMT_YUV420P;
+	m_yuvFMT = AV_PIX_FMT_NV12;
 	int sws_flags = SWS_POINT;
 	if (m_dstWidth*m_dstHeight*1.2<m_codecCtx->width*m_codecCtx->height)
 	{

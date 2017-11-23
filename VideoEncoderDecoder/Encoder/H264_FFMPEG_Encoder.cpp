@@ -72,7 +72,6 @@ bool H264_FFMPEG_Encoder::Encode(void * picIn, long long timestamp, std::list<hw
 		return false;
 	}
 	AVFrame *frameIn = (AVFrame*)picIn;
-	//frameIn->pts = m_frameIdx++;
 	frameIn->pts = timestamp;
 
 	int ret = avcodec_send_frame(m_codecCtx, frameIn);

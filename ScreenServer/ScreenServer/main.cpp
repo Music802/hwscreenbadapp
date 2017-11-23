@@ -16,7 +16,6 @@ int main(int argc, char *argv[])
 	}
 	Config::GetInstance().SetFileUrl(configName);
 	ScreenServer w;
-	//SDLWidget sdlwidght(0, 0, 200, 200, 200, 200);
 	w.show();
 	return a.exec();
 }
