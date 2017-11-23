@@ -5,6 +5,7 @@
 #include <qtcpsocket.h>
 #include <quuid.h>
 #include "ScreenPlayer.h"
+#include "RandomIntSet.h"
 #include <map>
 #include <mutex>
 
@@ -18,7 +19,7 @@ public:
 signals:
 	void AddLog(QString log);
 	public slots :
-		void RemoveConn(QString id);
+		void RemoveConn(int id);
 		void AddLogSlot(QString log);
 private slots :
 	void onNewConn();
@@ -27,6 +28,7 @@ private:
 	int m_maxConn;
 	QTcpServer m_tcpServer;
 	std::mutex m_muxPlayers;
-	std::map<QString, ScreenPlayer*> m_players;
+	std::map<int, ScreenPlayer*> m_players;
+	RandomIntSet m_ssrcSet;
 	bool m_shutdowned;
 };

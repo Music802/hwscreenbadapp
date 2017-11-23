@@ -13,10 +13,10 @@ class ScreenPlayer : public QObject
 	Q_OBJECT
 
 public:
-	ScreenPlayer(QObject *parent,QString id,QTcpSocket *conn);
+	ScreenPlayer(QObject *parent,int ssrc,QTcpSocket *conn);
 	~ScreenPlayer();
 signals:
-	void RemoveConn(QString id);
+	void RemoveConn(int ssrc);
 	void AddLog(QString log);
 private slots:
 	void onNewData();
@@ -32,10 +32,9 @@ private:
 	void handleConnResult(QByteArray data, int size);
 	void handleResult(QByteArray data, int size);
 private:
-	QString m_id;
 	QTcpSocket *m_conn;
 	QByteArray m_recvCache;
 	ScreenRenderer *m_renderer;
 	IKCPNetworker *m_kcpServer;
-	int m_ssrc;
+	int m_ssrc = 0;
 };

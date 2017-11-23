@@ -170,7 +170,7 @@ bool H264_FFMPEG_Encoder::InitEncoder()
 
 		m_codecCtx->me_range = 16;
 		m_codecCtx->max_qdiff = 4;
-		m_codecCtx->gop_size = 2;
+		m_codecCtx->gop_size = m_fps;
 		m_codecCtx->qmin = 10;
 		m_codecCtx->qmax = 30;
 		m_codecCtx->max_b_frames = 0;

@@ -154,6 +154,9 @@
     <ClCompile Include="GeneratedFiles\Release\moc_QKCPNetworker.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="ClientConfig.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="ScreenClient.h">
@@ -250,6 +253,9 @@
     </ClInclude>
     <ClInclude Include="..\..\KCP\timeUtils.h">
       <Filter>KCP</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientConfig.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

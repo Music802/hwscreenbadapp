@@ -3,9 +3,9 @@
 #include "ScreenPlayer.h"
 #include "PLAY_CMDS.h"
 
-ScreenPlayer::ScreenPlayer(QObject *parent, QString id, QTcpSocket *conn)
+ScreenPlayer::ScreenPlayer(QObject *parent, int ssrc, QTcpSocket *conn)
 	: QObject(parent),
-	m_id(id),
+	m_ssrc(ssrc),
 	m_conn(conn), 
 	m_kcpServer(nullptr),
 	m_renderer(nullptr)
@@ -50,9 +50,12 @@ void ScreenPlayer::onNewData() {
 }
 
 void ScreenPlayer::onDisconnected() {
-	AddLog("connect closed" +m_id);
+	QString strLog;
+	strLog.setNum(m_ssrc);
+	strLog += " connect closed.";
+	AddLog(strLog);
 	m_conn->close();
-	RemoveConn(m_id);
+	RemoveConn(m_ssrc);
 }
 
 void ScreenPlayer::ForceClose() {

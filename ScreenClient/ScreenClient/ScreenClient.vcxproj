@@ -30,7 +30,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
-    <IncludePath>E:\work\hewei\hwscreenbadapp;E:\qtproj\ScreenCopy;$(VC_IncludePath);$(WindowsSDK_IncludePath);$(FFMPEG_ROOT)\include</IncludePath>
+    <IncludePath>E:\qtproj\ScreenCopy;$(VC_IncludePath);$(WindowsSDK_IncludePath);$(FFMPEG_ROOT)\include</IncludePath>
     <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64;$(FFMPEG_ROOT)\lib;</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -87,6 +87,7 @@
     <ClCompile Include="..\..\VideoEncoderDecoder\Encoder\H264_X264_Encoder.cpp" />
     <ClCompile Include="..\..\VideoEncoderDecoder\ffcapture.cpp" />
     <ClCompile Include="..\..\VideoEncoderDecoder\ffmpeg_header.cpp" />
+    <ClCompile Include="ClientConfig.cpp" />
     <ClCompile Include="GeneratedFiles\Debug\moc_QKCPNetworker.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
@@ -180,6 +181,7 @@
     <ClInclude Include="..\..\VideoEncoderDecoder\Encoder\H264_X264_Encoder.h" />
     <ClInclude Include="..\..\VideoEncoderDecoder\ffcapture.h" />
     <ClInclude Include="..\..\VideoEncoderDecoder\ffmpeg_header.h" />
+    <ClInclude Include="ClientConfig.h" />
     <ClInclude Include="GeneratedFiles\ui_ScreenClient.h" />
     <ClInclude Include="GeneratedFiles\ui_WidgetConnect.h" />
     <ClInclude Include="GeneratedFiles\ui_WidgetPlay.h" />
@@ -269,7 +271,7 @@
   </ImportGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties MocDir=".\GeneratedFiles\$(ConfigurationName)" UicDir=".\GeneratedFiles" RccDir=".\GeneratedFiles" lupdateOptions="" lupdateOnBuild="0" lreleaseOptions="" Qt5Version_x0020_x64="5.6.3" MocOptions="" />
+      <UserProperties MocDir=".\GeneratedFiles\$(ConfigurationName)" UicDir=".\GeneratedFiles" RccDir=".\GeneratedFiles" lupdateOptions="" lupdateOnBuild="0" lreleaseOptions="" Qt5Version_x0020_x64="Qt59Vs14_X64" MocOptions="" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

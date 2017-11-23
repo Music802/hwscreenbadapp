@@ -3,7 +3,10 @@
 
 
 TCPServer::TCPServer(QObject *parent)
-	: QObject(parent), m_tcpServer(nullptr), m_shutdowned(false)
+	: QObject(parent), 
+	m_tcpServer(nullptr), 
+	m_shutdowned(false),
+	m_ssrcSet(1000)//1000 is enough
 {
 	m_maxConn = Config::GetInstance().MaxConn();
 	m_tcpServer.listen(QHostAddress::Any, Config::GetInstance().Port());
@@ -37,18 +40,27 @@ void TCPServer::onNewConn() {
 		return;
 	}
 	auto fd = m_tcpServer.nextPendingConnection();
-	auto id = QUuid::createUuid().toString();
-	ScreenPlayer *player = new ScreenPlayer(nullptr, id, fd);
-	m_players[id] = player;
+	//auto ssrc = QUuid::createUuid().toString();
+	bool ssrcGeted;
+	auto ssrc = m_ssrcSet.GetRandom(&ssrcGeted);
+	if (!ssrcGeted)
+	{
+		fd->close();
+		return;
+	}
+	ScreenPlayer *player = new ScreenPlayer(nullptr, ssrc, fd);
+	m_players[ssrc] = player;
 
 
 	QObject::connect(player, &ScreenPlayer::RemoveConn, this, &TCPServer::RemoveConn);
 	QObject::connect(player, &ScreenPlayer::AddLog, this, &TCPServer::AddLogSlot);
-	QString strLog = "new conn id = "+id+"   from" + fd->peerAddress().toString();
+	QString strSSRC;
+	strSSRC.setNum(ssrc);
+	QString strLog = "new conn id = "+strSSRC+"   from" + fd->peerAddress().toString();
 	AddLog(strLog);
 }
 
-void TCPServer::RemoveConn(QString id) {
+void TCPServer::RemoveConn(int id) {
 	if (m_shutdowned)
 	{
 		return;
@@ -60,4 +72,5 @@ void TCPServer::RemoveConn(QString id) {
 		delete it->second;
 		m_players.erase(it);
 	}
+	m_ssrcSet.GiveBack(id);
 }

@@ -1,13 +1,27 @@
 #include "WidgetConnect.h"
 #include <qmessagebox.h>
+#include "ClientConfig.h"
+
+static const QString ConfigIP_KEY = "remoteIP";
+static const QString ConfigPort_KEY = "remotePort";
 
 WidgetConnect::WidgetConnect(QWidget *parent)
 	: QWidget(parent)
 {
 	ui.setupUi(this);
 	m_conn = new QTcpSocket(this);
-	ui.lineIP->setText("127.0.0.1");
-	ui.linePort->setText("3000");
+	auto remoteIP = ClientConfig::GetInstance().ReadValue(ConfigIP_KEY).toString();
+	auto remotePort = ClientConfig::GetInstance().ReadValue(ConfigPort_KEY).toString();
+	if (remoteIP.size()<=0)
+	{
+		remoteIP = "127.0.0.1";
+	}
+	if (remotePort.size()<=0)
+	{
+		remotePort = "3000";
+	}
+	ui.lineIP->setText(remoteIP);
+	ui.linePort->setText(remotePort);
 
 	QObject::connect(m_conn, &QTcpSocket::connected, this, &WidgetConnect::SocketConnectedSlot);
 	QObject::connect(m_conn, &QTcpSocket::disconnected, this, &WidgetConnect::SocketDisconnectSlot);
@@ -36,7 +50,14 @@ void WidgetConnect::Clicked() {
 		m_conn->close();
 		return;
 	}
-	m_conn->connectToHost(ui.lineIP->text(), ui.linePort->text().toInt());
+
+	auto remoteIP = ui.lineIP->text();
+	auto remotePort = ui.linePort->text().toInt();
+
+	ClientConfig::GetInstance().SetValue(ConfigIP_KEY, remoteIP);
+	ClientConfig::GetInstance().SetValue(ConfigPort_KEY, remotePort);
+
+	m_conn->connectToHost(remoteIP, remotePort);
 }
 
 void WidgetConnect::SocketConnectedSlot() {

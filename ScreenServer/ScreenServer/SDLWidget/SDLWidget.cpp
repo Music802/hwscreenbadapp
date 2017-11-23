@@ -7,7 +7,7 @@ bool SDLWidget::InitSDL2() {
 	{
 		return false;
 	}
-
+	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
 	return true;
 }
 
@@ -66,6 +66,7 @@ void SDLWidget::SetWindowLocation(int x, int y,int w,int h)
 	m_h = h;
 	resize(m_w, m_h);
 	m_muxRender.unlock();
+	show();
 }
 
 void SDLWidget::UpdateYUV(std::shared_ptr<H264_IMG_Data> img)

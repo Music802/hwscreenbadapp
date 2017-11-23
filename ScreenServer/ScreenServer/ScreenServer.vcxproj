@@ -30,12 +30,12 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
-    <IncludePath>E:\work\hewei\hwscreenbadapp;E:\qtproj\ScreenCopy;$(SDL_ROOT)/include;$(FFMPEG_ROOT)/include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>E:\qtproj\ScreenCopy;$(SDL_ROOT)/include;$(FFMPEG_ROOT)/include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(SDL_ROOT)/lib/$(PlatformName);$(FFMPEG_ROOT)/lib;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
-    <IncludePath>$(SDL_ROOT)/include;$(FFMPEG_ROOT)/include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>E:\qtproj\ScreenCopy;$(SDL_ROOT)/include;$(FFMPEG_ROOT)/include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <LibraryPath>$(SDL_ROOT)/lib/$(PlatformName);$(FFMPEG_ROOT)/lib;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -137,6 +137,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="RandomIntSet.cpp" />
     <ClCompile Include="ScreenPlayer.cpp" />
     <ClCompile Include="ScreenRenderer.cpp" />
     <ClCompile Include="ScreenServer.cpp" />
@@ -173,6 +174,7 @@
     <ClInclude Include="..\..\CommonUtils\datapacket.h" />
     <ClInclude Include="..\..\KCP\IKCP\ikcp.h" />
     <ClInclude Include="..\..\KCP\KCPNetInfo.h" />
+    <ClInclude Include="RandomIntSet.h" />
     <CustomBuild Include="..\..\KCP\QKCPNetworker.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing QKCPNetworker.h...</Message>
@@ -266,7 +268,7 @@
   </ImportGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties MocDir=".\GeneratedFiles\$(ConfigurationName)" UicDir=".\GeneratedFiles" RccDir=".\GeneratedFiles" lupdateOptions="" lupdateOnBuild="0" lreleaseOptions="" Qt5Version_x0020_x64="5.6.3" MocOptions="" />
+      <UserProperties MocDir=".\GeneratedFiles\$(ConfigurationName)" UicDir=".\GeneratedFiles" RccDir=".\GeneratedFiles" lupdateOptions="" lupdateOnBuild="0" lreleaseOptions="" Qt5Version_x0020_x64="5.9.2" MocOptions="" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

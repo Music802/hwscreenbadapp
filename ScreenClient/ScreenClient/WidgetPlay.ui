@@ -19,7 +19,7 @@
      <x>49</x>
      <y>49</y>
      <width>281</width>
-     <height>100</height>
+     <height>107</height>
     </rect>
    </property>
    <layout class="QFormLayout" name="formLayout">
@@ -51,10 +51,10 @@
      </widget>
     </item>
     <item row="2" column="1">
-     <widget class="QLineEdit" name="lineHeight"/>
+     <widget class="QLineEdit" name="lineWidth"/>
     </item>
     <item row="3" column="1">
-     <widget class="QLineEdit" name="lineWidth"/>
+     <widget class="QLineEdit" name="lineHeight"/>
     </item>
     <item row="3" column="0">
      <widget class="QLabel" name="label_4">

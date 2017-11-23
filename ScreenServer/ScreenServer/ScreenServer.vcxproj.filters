@@ -178,6 +178,9 @@
     <ClCompile Include="..\..\KCP\KCPNetInfo.cpp">
       <Filter>KCP</Filter>
     </ClCompile>
+    <ClCompile Include="RandomIntSet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="ScreenServer.h">
@@ -265,6 +268,9 @@
     </ClInclude>
     <ClInclude Include="..\..\KCP\KCPNetInfo.h">
       <Filter>KCP</Filter>
+    </ClInclude>
+    <ClInclude Include="RandomIntSet.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

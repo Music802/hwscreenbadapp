@@ -21,8 +21,9 @@ namespace hwss {
 	//const int Payload_MPA = 14; //mp3 freq 90000
 	const int RTP_H264_freq = 90000;
 
-	#define RTP_MTU 1000
-	//const int RTP_MTU = 50000;
+	//#define RTP_MTU 1000
+	// for kcp 
+	const int RTP_MTU = 1300;
 
 	//no csrc,const size 12 byte
 	bool CreateRTPHeader(int payloadType, int seq, int ssrc, unsigned char *header, unsigned int timestamp, char marker = 0);
