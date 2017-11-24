@@ -54,12 +54,16 @@ ScreenClient::~ScreenClient()
 
 void ScreenClient::ConnectClosed()
 {
-	QMessageBox::warning(nullptr, "socket error",
-		"socket closed", QMessageBox::Yes, QMessageBox::Yes);
-	setWidgetVisiable(PAGE_CONN);
 //stop capture and push
+	bool msgBox = m_encoding;
 	m_recvCache.clear();
 	ReleaseCaptureStopEncode();
+	if (msgBox)
+	{
+		QMessageBox::warning(nullptr, "socket error",
+			"socket closed", QMessageBox::Yes, QMessageBox::Yes);
+	}
+	setWidgetVisiable(PAGE_CONN);
 }
 
 void ScreenClient::NewDataRecved(QByteArray data)

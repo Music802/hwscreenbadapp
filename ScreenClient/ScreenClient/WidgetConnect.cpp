@@ -36,6 +36,10 @@ WidgetConnect::~WidgetConnect()
 {
 	if (m_conn!=nullptr)
 	{
+		if (m_connected)
+		{
+			m_conn->disconnectFromHost();
+		}
 		if (m_conn->isOpen())
 		{
 			m_conn->close();
@@ -45,12 +49,7 @@ WidgetConnect::~WidgetConnect()
 }
 
 void WidgetConnect::Clicked() {
-	if (m_conn->isOpen())
-	{
-		m_conn->close();
-		return;
-	}
-
+	ui.BtnConnect->setEnabled(false);
 	auto remoteIP = ui.lineIP->text();
 	auto remotePort = ui.linePort->text().toInt();
 
@@ -61,19 +60,23 @@ void WidgetConnect::Clicked() {
 }
 
 void WidgetConnect::SocketConnectedSlot() {
-	
-	
+	ui.BtnConnect->setEnabled(true);
+	m_connected = true;
 	ConnectSuccessed(m_conn);
 }
 
 void WidgetConnect::SocketDisconnectSlot() {
-	if (m_conn!=nullptr)
+	if (m_connected)
 	{
-		if (m_conn->isOpen())
+		m_connected = false;
+		if (m_conn != nullptr)
 		{
-			m_conn->close();
+			if (m_conn->isOpen())
+			{
+				m_conn->close();
+			}
+			ConnectEnd();
 		}
-		ConnectEnd();
 	}
 }
 
@@ -86,6 +89,21 @@ void WidgetConnect::SocketReadableSlot() {
 }
 
 void WidgetConnect::SocketErrorSlot(QAbstractSocket::SocketError a) {
-	QMessageBox::warning(nullptr, "connect error",
-		"connect failed", QMessageBox::Yes, QMessageBox::Yes);
+	ui.BtnConnect->setEnabled(true);
+	if (m_connected)
+	{
+		m_connected = false;
+		if (m_conn != nullptr)
+		{
+			if (m_conn->isOpen())
+			{
+				m_conn->close();
+			}
+			ConnectEnd();
+		}
+	}
+	else {
+		QMessageBox::warning(nullptr, "connect error",
+			"connect failed", QMessageBox::Yes, QMessageBox::Yes);
+	}
 }

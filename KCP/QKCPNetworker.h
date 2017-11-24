@@ -45,7 +45,7 @@ private:
 private:
 	//the recv mtu must bigger than transform mtu
 	static const int s_MTU = 1400;
-	static const int s_max_send_que = 100000;
+	static const int s_max_send_que = 10000;
 	static const int s_KCP_ID = 1;
 	QTimer m_timer;
 	QUdpSocket m_udpSocket;

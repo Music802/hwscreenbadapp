@@ -24,4 +24,5 @@ signals:
 private:
 	Ui::WidgetConnect ui;
 	QTcpSocket *m_conn;
+	bool m_connected = false;
 };
